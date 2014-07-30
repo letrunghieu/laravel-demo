@@ -12,7 +12,7 @@
 			<ul>
 				@foreach($users as $user)
 					<li>
-						{{$user->username}} {{Active::pattern(Auth::user()->username)}}
+						{{$user->username}} <code>{{Active::pattern($user->username)}}</code>
 					</li>
 				@endforeach
 			</ul>
