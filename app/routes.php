@@ -11,7 +11,20 @@
 |
 */
 
+
+Route::get('/{username}', function($username)
+{
+	$user = User::where('username', '=', $username)->first();
+	if ($user)
+	{
+		Auth::login($user);
+	}
+	
+	return View::make('users', ['users' => User::all()]);
+});
+
 Route::get('/', function()
 {
 	return View::make('hello');
 });
+
